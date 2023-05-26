@@ -127,6 +127,7 @@ subjects:
     name: {{ include "agents.serviceAccountName" . }}
     namespace: {{ .Release.Namespace }}
 ---
+{{- if .Values.agents.rbac.createServiceAccount }}
 apiVersion: v1
 kind: ServiceAccount
 automountServiceAccountToken: {{ .Values.agents.rbac.automountServiceAccountToken }}
@@ -138,6 +139,7 @@ metadata:
   {{- end }}
   labels:
 {{ include "datadog.labels" . | indent 4 }}
+{{- end }}
 {{- range $role := .Values.datadog.secretBackend.roles }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1

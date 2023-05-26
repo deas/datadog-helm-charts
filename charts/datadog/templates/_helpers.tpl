@@ -485,8 +485,6 @@ Return the service account name
 {{- define "agents.serviceAccountName" -}}
 {{- if .Values.providers.gke.autopilot -}}
 datadog-agent
-{{- else if .Values.agents.rbac.create -}}
-{{ template "datadog.fullname" . }}
 {{- else -}}
 {{ .Values.agents.rbac.serviceAccountName }}
 {{- end -}}

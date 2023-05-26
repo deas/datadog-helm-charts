@@ -1247,7 +1247,10 @@ agents:
     # agents.rbac.create -- If true, create & use RBAC resources
     create: true
 
-    # agents.rbac.serviceAccountName -- Specify a preexisting ServiceAccount to use if agents.rbac.create is false
+    # agents.rbac.serviceAccountName -- Specify ServiceAccount
+    createServiceAccount: true
+
+    # agents.rbac.serviceAccountName -- Specify ServiceAccount
     serviceAccountName: default
 
     # agents.rbac.serviceAccountAnnotations -- Annotations to add to the ServiceAccount if agents.rbac.create is true
